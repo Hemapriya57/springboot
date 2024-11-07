@@ -1,0 +1,57 @@
+post http://localhost:8082/interview
+Content-Type:application/json
+
+java
+###
+post http://localhost:8082/interview
+Content-Type: application/json
+
+git
+###
+get http://localhost:8082/crud/
+
+###
+post http://localhost:8082/crud/newskill
+Content-Type: application/json
+
+springboot
+###
+delete http://localhost:8082/crud/springboot
+###
+put http://localhost:8082/crud/1
+Content-Type: application/json
+
+maven
+###
+get http://localhost:8082/get/
+###
+post http://localhost:8082/get/abc
+Content-Type: application/json
+
+{
+    "bankName": "canarabank",
+    "accountHolder": "hemapriya",
+    "accountNo": 7668688876,
+    "ifsccode": "qw09987",
+    "accountBalance": 89997.0
+}
+###
+get http://localhost:8082/get/1
+###
+get http://localhost:8082/get/accountno/7668688876
+
+###
+put http://localhost:8082/get/
+Content-Type: application/json
+
+{
+    "bankName": "jeevanbank",
+    "accountHolder": "hemapriya",
+    "accountNo": 7668688876,
+    "ifsccode": "qw09987",
+    "accountBalance": 89997.0
+}
+###
+get http://localhost:8082/get/balance/100000
+###
+get http://localhost:8082/get/accname/priya/8000
