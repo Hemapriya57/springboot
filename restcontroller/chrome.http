@@ -36,7 +36,7 @@ Content-Type: application/json
     "accountBalance": 89997.0
 }
 ###
-get http://localhost:8082/get/1
+get http://localhost:8082/get/0
 ###
 get http://localhost:8082/get/accountno/7668688876
 
@@ -55,3 +55,11 @@ Content-Type: application/json
 get http://localhost:8082/get/balance/100000
 ###
 get http://localhost:8082/get/accname/priya/8000
+###
+delete http://localhost:8082/get/0
+###
+put http://localhost:8082/get/minbal
+###
+delete http://localhost:8082/get/ifsccode/abc1234
+###
+put http://localhost:8082/get/update/12345678/700
