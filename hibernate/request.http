@@ -1,0 +1,39 @@
+get http://localhost:8082/
+###
+post http://localhost:8082/
+Content-Type: application/json
+
+{
+    "lapmodel":"dell",
+    "lapprice":80000,
+    "lapmemory":350
+}
+###
+get http://localhost:8082/model/lenova
+###
+delete http://localhost:8082/
+Content-Type: application/json
+
+{
+    "lapmodel":"dell",
+    "lapprice":50000,
+    "lapmemory":110
+}
+###
+delete http://localhost:8082/dell
+###
+get http://localhost:8082/memoryno/110
+###
+get http://localhost:8082/lap
+###
+get http://localhost:8082/price/200000
+###
+get http://localhost:8082/filter/500/768767
+###
+put http://localhost:8082/
+###
+put http://localhost:8082/offer
+###
+put http://localhost:8082/lenova
+###
+delete http://localhost:8082/brand/lenova

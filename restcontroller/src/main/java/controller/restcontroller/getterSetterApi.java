@@ -3,6 +3,7 @@ package controller.restcontroller;
 import java.util.List;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
+import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 // to perform crud operations using pojo file
 
 @RestController
@@ -30,10 +32,10 @@ public class getterSetterApi {
     @PostMapping("/abc")
     public String create(@RequestBody usingGetterSetter value){
         accounts.add(value);
-        return value.getAccountHolder() +"account has created";
+        return value.getAccountHolder() +"account has created";  
     }
     @GetMapping("/{number}")
-    public usingGetterSetter indexposition(@PathVariable("number") int number){
+    public usingGetterSetter indexposition(@PathVariable("number") int number){         //calling the file and return file type
         if(number>=0&&number<accounts.size()){
             return accounts.get(number);
         }
@@ -60,7 +62,7 @@ public class getterSetterApi {
                 }
 
             }
-            return value.getAccountNo()+"hasnot updated";
+            return value.getAccountNo()+"hasnot updated"; //num + string =string
         
     }
     @GetMapping("/balance/{value}")
@@ -75,35 +77,32 @@ public class getterSetterApi {
                 //.filter(obj-> obj.getAccountBalance()<=value)
                 .collect(Collectors.toList());
     }
-
-    /*@DeleteMapping("/{indexhema}")
-    public String delete(@PathVariable("indexhema") int indexhema){
-        accounts.remove(indexhema);
-        return usingGetterSetter.getAccountHolder()+"has removed";
-    }
-    */
-
-    @DeleteMapping("/{position}")
+    
+   /*  @DeleteMapping("/{position}")
     public String delete(@PathVariable("position") int position){
         if(position>=0 && position<accounts.size()){
             accounts.remove(position);
             return "has removed";
         }
         return "hasnot removed";
-    }
-    /*@PutMapping("/minbal/{accno}")
+    }*/
+    @PutMapping("/minbal/{accno}")
     public List<usingGetterSetter> minbal(@PathVariable("accno") int accno){
         accounts.stream().filter(obj-> obj.getAccountNo()==accno).toList().get(0);
-       // for(int i=0;i<=accounts.size();i++){
+        List<usingGetterSetter> skills = new  ArrayList<usingGetterSetter>();
+        for(int i=0;i<=accounts.size();i++){
+            usingGetterSetter abc = new usingGetterSetter(null, null, accno, null, accno);
         if(accounts.get(0).getAccountBalance()<=5000){
-          float account = accounts.get(0).getAccountBalance() - 50.0F;
-          //return accounts.getAccountBalance()-50.0F;
+        float account = accounts.get(0).getAccountBalance() - 50.0F;
+        abc.setAccountBalance(account);
+        // return account.getAccountBalance()-50.0F;
           
-        }    
-    //}
-        return null;
+        }  
+        skills.add(abc);  
+    }
+        return skills;
     
-    }*/
+    }
     @PutMapping("/minbal")
     public void minbal(){
         for(int i=0;i<accounts.size();i++){
@@ -139,8 +138,15 @@ public List<usingGetterSetter> codeString(@PathVariable("ifsccode") String ifscc
     catch(ArrayIndexOutOfBoundsException outOfBoundsException){
         return "Account num is not valid";
     }
+ }
 
-   }
+ @DeleteMapping("/{indexhema}")
+    public usingGetterSetter indexdelete(@PathVariable("indexhema") int indexhema){
+        usingGetterSetter hema = accounts.get(indexhema);   //creating an object
+        accounts.remove(indexhema);
+        return hema;
+    }
+
 
 }
 

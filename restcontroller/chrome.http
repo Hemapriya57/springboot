@@ -63,3 +63,7 @@ put http://localhost:8082/get/minbal
 delete http://localhost:8082/get/ifsccode/abc1234
 ###
 put http://localhost:8082/get/update/12345678/700
+###
+DELETE http://localhost:8082/get/0
+###
+put http://localhost:8082/get/minbal/12345678
