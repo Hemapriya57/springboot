@@ -1,0 +1,12 @@
+get http://localhost:8080/
+###
+post http://localhost:8080/
+Content-Type:application/json
+
+{
+    "depositId": 3546456,
+    "depositName": "nalai thiran",
+    "depositType": "RD",
+    "depositRoi": 1,
+    "depositDescription": "Recurring deposit with 1% interest"
+  }
