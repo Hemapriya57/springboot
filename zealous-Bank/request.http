@@ -1,0 +1,132 @@
+get http://localhost:8080/
+###
+post http://localhost:8080/
+Content-Type:application/json
+
+{
+    "depositId": 1546456,
+    "depositName": "Delite account",
+    "depositType": "Current account",
+    "depositRoi": 3,
+    "depositDescription": "Recurring deposit with 1% interest"
+  }
+###
+get http://localhost:8080/1546456
+###
+get http://localhost:8080/typed/Term deposit
+###
+PUT http://localhost:8080/put/Saving account/1546456
+###
+delete http://localhost:8080/1546456
+
+  # ------------------- loan ------------------------------------
+###
+get http://localhost:8080/loan/ 
+###
+post http://localhost:8080/loan/
+Content-Type: application/json
+
+{
+    "loanNumber": 7656789,
+    "loanName": "Swarna express",
+    "loanType": "Gold loan",
+    "loanRoi": 7,
+    "loanDescription": "Gold loan with 7% interest"
+  }
+###
+get http://localhost:8080/loan/7656789
+###
+put http://localhost:8080/loan/abc/Gold loan/7567890
+###
+delete http://localhost:8080/loan/7234567
+#--------------------------------customer-------------------------
+###
+get http://localhost:8080/customer/
+###
+post http://localhost:8080/customer/
+Content-Type: application/json
+
+{
+  "customerName": "Aarav",
+  "customerAddress": "Ooty",
+  "customerStatus": "true",
+  "customerContact": 9876543210,
+  "userName": "aarav",
+  "password": 4321
+}
+###
+get http://localhost:8080/customer/users/aarav
+###
+put http://localhost:8080/customer/
+Content-Type: application/json
+
+  {
+    "customerId": 6789009,
+    "customerName": "sumathi",
+    "customerAddress": "salem",
+    "customerStatus": "true",
+    "customerContact": 9994646398,
+    "userName": "sumathi",
+    "password": 2345
+  }
+###
+delete http://localhost:8080/customer/
+Content-Type: application/json
+
+{
+    "customerId": 868687,
+    "customerName": "priya",
+    "customerAddress": "Dharmapuri",
+    "customerStatus": "true",
+    "customerContact": 9989008789,
+    "userName": "pri",
+    "password": 6789
+  }
+
+#--------------------------account---------------------------
+###
+get http://localhost:8080/account/
+###
+post http://localhost:8080/account/1
+Content-Type: application/json
+
+{
+    "accountType":"Savings",
+    "accountNumber":1111111111,
+    "accountBalance":1000,
+    "accountStatus":true
+}
+###
+get http://localhost:8080/account/7
+
+#----------------------------payee------------------------------------------
+###
+post http://localhost:8080/payee/1111111111
+Content-Type: application/json
+
+{
+  "payeeName":"jeeva",
+  "payeeAccountNum": 98765432
+}
+###
+get http://localhost:8080/payee/
+###
+get http://localhost:8080/payee/2
+###
+get http://localhost:8080/payee/name/dhinesh
+###
+put http://localhost:8080/payee/
+Content-Type: application/json
+
+{
+  "payeeName": "sudharshan",
+  "payeeAccountNum": 6859680949,
+  "payeeId": 2,
+  "account":{
+    "accountId": 1,
+    "accountType": "Fixed Deposit",
+    "accountNumber": 98765432,
+    "accountStatus": true,
+    "accountBalance": 50000.0
+  }
+}

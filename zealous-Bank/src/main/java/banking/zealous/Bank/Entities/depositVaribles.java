@@ -1,4 +1,4 @@
-package banking.zealous.Bank;
+package banking.zealous.Bank.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,6 +14,17 @@ public class depositVaribles {
     
     public depositVaribles() {
     }
+    
+
+    public depositVaribles(int depositId, String depositName, String depositType, int depositRoi,
+            String depositDescription) {
+        this.depositId = depositId;
+        this.depositName = depositName;
+        this.depositType = depositType;
+        this.depositRoi = depositRoi;
+        this.depositDescription = depositDescription;
+    }
+
 
     public int getDepositId() {
         return depositId;

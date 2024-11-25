@@ -39,7 +39,7 @@ public interface Repositoryhema extends CrudRepository<laptop,String> {
     //2   custom methods via hibernate query
 
     @Query("from laptop where lapprice<= :price")
-    List<laptop> fetchAmount(int price);
+    List<laptop> fetchAmount(int price);  //list return type is used only for select query
 
     @Query("select lapmodel from laptop")
     List<String> fetchmodel();
@@ -65,5 +65,5 @@ public interface Repositoryhema extends CrudRepository<laptop,String> {
     @Query(value ="delete from pc where pc_model = :name",nativeQuery = true)
     @Modifying
     @Transactional
-    int deleteByModel(String name);
+    int deleteByModel(String name);   //queries like UPDATE only change data in the database. They don’t return any objects or rows from the database.tell you how many rows were updated, but it will NOT give you the updated Loans object.
 }
