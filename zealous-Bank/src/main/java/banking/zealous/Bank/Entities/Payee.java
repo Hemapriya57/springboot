@@ -1,7 +1,11 @@
 package banking.zealous.Bank.Entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +21,7 @@ public class Payee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int PayeeId;
     private String payeeName;
+    
     @Column(unique = true)
     private long payeeAccountNum;
 

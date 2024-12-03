@@ -1,3 +1,13 @@
+POST http://localhost:8080/transfer/
+Content-Type: application/json
+
+{
+  "transactionFrom":4467587587,
+  "transactionTo":2467587587,
+  "transactionAmount":200,
+  "transactionType":"NEFT"
+}
+###
 get http://localhost:8080/
 ###
 post http://localhost:8080/
@@ -47,12 +57,12 @@ post http://localhost:8080/customer/
 Content-Type: application/json
 
 {
-  "customerName": "Aarav",
+  "customerName": "Hema",
   "customerAddress": "Ooty",
   "customerStatus": "true",
   "customerContact": 9876543210,
-  "userName": "aarav",
-  "password": 4321
+  "userName": "hema",
+  "password": "aarav"
 }
 ###
 get http://localhost:8080/customer/users/aarav
@@ -92,21 +102,21 @@ Content-Type: application/json
 
 {
     "accountType":"Savings",
-    "accountNumber":1111111111,
+    "accountNumber":2467587587,
     "accountBalance":1000,
     "accountStatus":true
 }
 ###
-get http://localhost:8080/account/7
+get http://localhost:8080/account/1
 
 #----------------------------payee------------------------------------------
 ###
-post http://localhost:8080/payee/1111111111
+post http://localhost:8080/payee/4467587587
 Content-Type: application/json
 
 {
-  "payeeName":"jeeva",
-  "payeeAccountNum": 98765432
+  "payeeName":"mahi",
+  "payeeAccountNum": 2467587587
 }
 ###
 get http://localhost:8080/payee/
@@ -129,4 +139,15 @@ Content-Type: application/json
     "accountStatus": true,
     "accountBalance": 50000.0
   }
+}
+------------------------------------Transaction-----------------------------
+###
+post http://localhost:8080/transfer/
+Content-Type: application/json
+
+{
+  "transactionType":"NEFT",
+  "transactionFrom":2467587587,
+  "transactionTo":7654567864,
+  "transactionAmount":8
 }

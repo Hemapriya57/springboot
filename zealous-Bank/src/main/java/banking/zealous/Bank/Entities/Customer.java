@@ -25,7 +25,7 @@ public class Customer {
     private long customerContact;
     @Column(unique = true)
     private String userName;
-    private int password;
+    private String password;
     @OneToMany(mappedBy = "customerEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Account> myAccounts;  //logical connection
@@ -73,10 +73,10 @@ public class Customer {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
-    public void setPassword(int temp) {
+    public void setPassword(String temp) {
         this.password = temp;
     }
     

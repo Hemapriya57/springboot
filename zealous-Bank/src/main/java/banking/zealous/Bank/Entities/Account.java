@@ -40,8 +40,12 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Payee> payee;
-
-    
+    public List<Payee> getPayee() {
+        return payee;
+    }
+    public void setPayee(List<Payee> payee) {
+        this.payee = payee;
+    }
     public int getAccountId() {
         return accountId;
     }

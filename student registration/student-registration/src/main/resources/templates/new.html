@@ -10,37 +10,36 @@
 <body>
 <div align="center">
     <h1>Create New Student</h1>
-    <br />
+    <br>
      <div class="col-sm-4">
     <form action="#" th:action="@{/save}" th:object="${student}" method="post">
-
+        
       
          <div alight="left">
-            <tr>
-                <label class="form-label" >Student Name</label>
-                <td>
-                    <input type="hidden" th:field="*{id}" />
+                <tr>
+                    <label class="form-label" >Student Name</label>
+                 <td>
+                    <input type="hidden" th:field="*{studentNumber}" />
                     <input type="text" th:field="*{studentname}" class="form-control" placeholder="Student Name" />
-                </td>
-            </tr>
+                 </td>
+                </tr>
          </div>   
             
-              <div alight="left">
-          
-            <tr>
-                 <label class="form-label" >Course</label>
-                <td><input type="text" th:field="*{course}" class="form-control" placeholder="Course" /></td>
-            </tr>
+            <div alight="left">
+                <tr>
+                     <label class="form-label" >Course</label>
+                     <td><input type="text" th:field="*{course}" class="form-control" placeholder="Course" /></td>
+                </tr>
             </div> 
             <div alight="left">
-                 <tr>
-                 <label class="form-label" >Fee</label>
-                <td><input type="text" th:field="*{fee}" class="form-control" placeholder="Fee" /></td>
-            </tr>
+                <tr>
+                    <label class="form-label" >Fee</label>
+                    <td><input type="text" th:field="*{fees}" class="form-control" placeholder="Fee" /></td>
+                </tr>
             </div> 
             <br>
             <tr>
-            <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+                <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
             </tr>
         </table>
     </form>

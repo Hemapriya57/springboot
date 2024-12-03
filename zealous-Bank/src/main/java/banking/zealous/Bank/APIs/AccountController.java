@@ -31,7 +31,9 @@ public class AccountController {
     }
     @GetMapping("/{accountid}")
     public Optional<Account> apiReadCustomer(@PathVariable("accountid") int accountid){
-        return accountservices.readById(accountid);
+        Optional<Account> received = accountservices.readById(accountid);
+        System.out.println(received.get().getPayee().size());
+        return received;
     }
 
 }

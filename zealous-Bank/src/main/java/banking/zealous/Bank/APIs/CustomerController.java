@@ -32,8 +32,11 @@ public class CustomerController {
     }
     @PostMapping("/")
     public Customer send(@RequestBody Customer customer){
-        //String temp=Base64.getEncoder().encodeToString((customer.getPassword()+"").getBytes());
-        //customer.setPassword(temp);
+        String temp=Base64.getEncoder().encodeToString((customer.getPassword()+"").getBytes());
+        customer.setPassword(temp);
+    // getbytes - Converts the string into a byte array based on the platform's encoding given (usually UTF-8).
+    // The + "" operation is a way to convert the result to a String if it's not already.
+    // int cannot be encrypted.
         return customerrepository.save(customer);
     }
     @GetMapping("/users/{username}")

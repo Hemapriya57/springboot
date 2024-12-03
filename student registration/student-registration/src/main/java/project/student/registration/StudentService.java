@@ -6,18 +6,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jakarta.persistence.Id;
+
 
 @Service
 public class StudentService {
     @Autowired
     StudentRepository studentrepository;
 
-    public Iterable<StudentEntity> readall(){
-        return studentrepository.findAll();
+    public List<StudentEntity> readall(){
+        return (List<StudentEntity>) studentrepository.findAll();
     }
-    public Optional<StudentEntity> readid(int number){
-        return studentrepository.findById(number);
+    public StudentEntity readid(int number){
+        return studentrepository.findById(number).get();  //This method retrieves the value inside the Optional if it's present.calling .get() on an empty Optional will throw a NoSuchElementException.
     }
     public StudentEntity update(StudentEntity num){
         return studentrepository.save(num);

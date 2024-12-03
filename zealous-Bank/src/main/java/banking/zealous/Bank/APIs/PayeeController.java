@@ -22,13 +22,7 @@ public class PayeeController {
 
      @PostMapping("/{accountnumber}")
      public Payee create(@PathVariable("accountnumber") long accountid,@RequestBody Payee payee){
-        try{
-             return payeeservices.insert(accountid,payee);
-        }
-        catch(RuntimeException e){
-           // System.out.println("duplicate entry");
-            throw new RuntimeException("duplicate entry");
-        }
+        return payeeservices.insert(accountid,payee);
     }
     @GetMapping("/")
     public List<Payee> get(){
