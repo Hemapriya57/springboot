@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>To-Do List</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    font-size: 20px;
+    margin: 0;
+    display: flex;
+    background:linear-gradient(130deg,blueviolet,rgb(13, 210, 13));
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width:100%;
+              max-width:540px;
+    text-align: center;
+    background-color: #fff;
+    
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+         
+button{
+    padding: 20px;
+          border-radius:10px;
+          background-color:rgb(179, 17, 17);
+          transition: .5s ease;
+          cursor: pointer;
+          color: white;
+}
+
+#taskInput{                  
+          padding:20px;
+          border-radius:10px;
+          width:50%;
+          margin-bottom: 30px;
+          }
+
+--where the task all are written
+#todo-list {
+    margin-bottom: 50px;
+    
+}
+
+.task {
+    display: flex;
+    margin-left:50px;
+    margin-top: 20px;
+    font-size: 25px;
+    
+}
+
+.task input {
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+
+        <input type="text" id="taskInput" placeholder="Enter your text">
+        <button onclick="addTask()">Add Task</button>
+        <div id="todo-list">
+            <!-- Tasks will be dynamically added here -->
+        </div>
+    </div>
+    
+</body>
+<script>
+function addTask() {
+    var taskInput = document.getElementById("taskInput");
+    var taskText = taskInput.value;
+
+    if (taskText.trim() === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    var todoList = document.getElementById("todo-list");
+
+    var taskDiv = document.createElement("div");
+    taskDiv.className = "task";
+
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.addEventListener("change",function(){
+        //it overlined when the box is checked
+        if(checkbox.checked){
+            taskLabel.style.textDecoration="line-through";
+        }else{
+            taskLabel.style.textDecoration="none";
+        }
+    })
+
+    var taskLabel = document.createElement("label");
+    taskLabel.textContent = taskText;
+
+    taskDiv.appendChild(checkbox);
+    taskDiv.appendChild(taskLabel);
+    todoList.appendChild(taskDiv);
+
+    taskInput.value = "";
+}
+</script>
+</html>

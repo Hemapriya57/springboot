@@ -1,5 +1,8 @@
 package banking.zealous.Bank.Services;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +32,12 @@ public class TransactionServices {
             transaction.getTransactionFrom()!=transaction.getTransactionTo()&&size>0){ 
                 Account receiver = accountrepository.findByAccountNumber(transaction.getTransactionTo()).get();
                 if(transaction.getTransactionAmount() <= v.getAccountBalance()){
-                    transaction.setTransactionStatus("Success");
                     v.setAccountBalance(v.getAccountBalance()-transaction.getTransactionAmount());
-                    transactionrepository.save(transaction);
                     receiver.setAccountBalance(receiver.getAccountBalance()+transaction.getTransactionAmount());
                     accountrepository.save(v);
                     accountrepository.save(receiver);
+                    transaction.setTransactionStatus("Success");
+                    transactionrepository.save(transaction);
                     isvalid = true;
                 }
                 else{
@@ -46,6 +49,27 @@ public class TransactionServices {
             return transaction;
         else
             throw new RuntimeException("transaction failed due to account was not present");
+    }
+    public List<Transaction> read(){
+        return transactionrepository.findAll();
+    }
+    public List<Transaction> readtype(String transactiontype){
+        return transactionrepository.findAllByTransactionType(transactiontype);
+    }
+    public List<Transaction> readdate(String transactiondate){
+        LocalDate userDate = LocalDate.parse(transactiondate);//parse() is a static method of LocalDate that converts a String into a LocalDate object.
+        LocalDateTime startOfDay = userDate.atStartOfDay(); //atStartOfDay() is a method of the LocalDate class that returns a LocalDateTime object
+        LocalDateTime endOfDay = userDate.atTime(23, 59, 59);
+        return transactionrepository.findAllByTransactionDate(startOfDay,endOfDay);
+    }
+    public List<Transaction> readFromAndDate(long transactionfrom,String trDateTime){
+        LocalDate userDate = LocalDate.parse(trDateTime);
+        LocalDateTime startOfDay = userDate.atStartOfDay();
+        LocalDateTime endOfDay = userDate.atTime(23, 59, 59);
+        return transactionrepository.selectByTransactions(transactionfrom,startOfDay,endOfDay);
+    }
+    public List<Transaction> readFrom(long trfrom){
+        return transactionrepository.findAllByTransactionFrom(trfrom);
     }
     
 }

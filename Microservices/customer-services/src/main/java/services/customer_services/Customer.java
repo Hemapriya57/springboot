@@ -1,18 +1,12 @@
-package banking.zealous.Bank.Entities;
+package services.customer_services;
 
 import java.util.List;
-
-import jakarta.persistence.CascadeType; // Use this!
-//import org.hibernate.annotations.CascadeType;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Customer {
@@ -26,9 +20,8 @@ public class Customer {
     @Column(unique = true)
     private String userName;
     private String password;
-    @OneToMany(mappedBy = "customerEntity", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
-    private List<Account> myAccounts;  //logical connection
+    
+    private transient List<Account> myAccounts;  //logical connection
     public List<Account> getMyAccounts() {
         return myAccounts;
     }
@@ -78,7 +71,6 @@ public class Customer {
     }
     public void setPassword(String temp) {
         this.password = temp;
-        
     }
     
     

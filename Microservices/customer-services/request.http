@@ -1,49 +1,8 @@
-get http://localhost:8080/
-###
-post http://localhost:8080/
-Content-Type:application/json
-
-{
-    "depositId": 1546456,
-    "depositName": "Delite account",
-    "depositType": "Current account",
-    "depositRoi": 3,
-    "depositDescription": "Recurring deposit with 1% interest"
-  }
-###
-get http://localhost:8080/1546456
-###
-get http://localhost:8080/typed/Term deposit
-###
-PUT http://localhost:8080/put/Saving account/1546456
-###
-delete http://localhost:8080/1546456
-
-  # ------------------- loan ------------------------------------
-###
-get http://localhost:8080/loan/ 
-###
-post http://localhost:8080/loan/
-Content-Type: application/json
-
-{
-    "loanNumber": 7656789,
-    "loanName": "Swarna express",
-    "loanType": "Gold loan",
-    "loanRoi": 7,
-    "loanDescription": "Gold loan with 7% interest"
-  }
-###
-get http://localhost:8080/loan/7656789
-###
-put http://localhost:8080/loan/abc/Gold loan/7567890
-###
-delete http://localhost:8080/loan/7234567
 #--------------------------------customer-------------------------
 ###
-get http://localhost:8080/customer/
+get http://localhost:8091/customer/
 ###
-post http://localhost:8080/customer/
+post http://localhost:8091/customer/
 Content-Type: application/json
 
 {
@@ -55,9 +14,9 @@ Content-Type: application/json
   "password": "aarav"
 }
 ###
-get http://localhost:8080/customer/users/aarav
+get http://localhost:8091/customer/users/aarav
 ###
-put http://localhost:8080/customer/
+put http://localhost:8091/customer/
 Content-Type: application/json
 
   {
@@ -70,7 +29,7 @@ Content-Type: application/json
     "password": 2345
   }
 ###
-delete http://localhost:8080/customer/
+delete http://localhost:8091/customer/
 Content-Type: application/json
 
 {

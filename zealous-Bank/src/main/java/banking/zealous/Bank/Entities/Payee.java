@@ -21,8 +21,6 @@ public class Payee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int PayeeId;
     private String payeeName;
-    
-    @Column(unique = true)
     private long payeeAccountNum;
 
     @ManyToOne
