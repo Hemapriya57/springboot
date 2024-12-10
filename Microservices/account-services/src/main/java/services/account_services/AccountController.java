@@ -16,19 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountController {
     @Autowired
     AccountServices accountservices;
-    @PostMapping("/{abc}")
-    public Account apiCreate(@PathVariable("abc") int abc,@RequestBody Account account){
-        System.out.println("REceived Customer "+abc+" "+account.getAccountNumber());
-        return accountservices.create(abc,account);
+    @PostMapping("/")
+    public Account apiCreate(@RequestBody Account account){
+        return accountservices.create(account);
 }
     @GetMapping("/")
     public List<Account> apiread(){
         return accountservices.read();
     }
-    @GetMapping("/{accountid}")
-    public Optional<Account> apiReadCustomer(@PathVariable("accountid") int accountid){
-        Optional<Account> received = accountservices.readById(accountid);
-        System.out.println(received.get().getPayee().size());
+    @GetMapping("/{customerid}")
+    public List<Account> apiReadCustomer(@PathVariable("customerid") int customerid){
+        List<Account> received = accountservices.readAccountByCustomer(customerid);
         return received;
     }
 

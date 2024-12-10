@@ -24,7 +24,7 @@ public class CustomerController {
 
     @GetMapping("/")
     public List<Customer> get(){
-        return customerrepository.findAll();
+        return customerservices.listAllCustomer();
     }
     @PostMapping("/")
     public Customer send(@RequestBody Customer customer){
@@ -33,11 +33,11 @@ public class CustomerController {
     // getbytes - Converts the string into a byte array based on the platform's encoding given (usually UTF-8).
     // The + "" operation is a way to convert the result to a String if it's not already.
     // int cannot be encrypted.
-        return customerrepository.save(customer);
+        return customerservices.updatedCustomer(customer);
     }
     @GetMapping("/users/{username}")
     public Optional<Customer> getbyname(@PathVariable("username") String username){
-        return customerrepository.findByUserName(username);
+        return customerservices.readOneCustomer(username);
     }
     @PutMapping("/")
     public Customer apiupdate(@RequestBody Customer customer){

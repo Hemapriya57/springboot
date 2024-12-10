@@ -21,8 +21,8 @@ public class Account {
     public int getCustomer() {
         return customer;
     }
-    public void setCustomer(int customerEntity) {
-        this.customer = customerEntity;
+    public void setCustomer(int customer) {
+        this.customer = customer;
     }
 
     public int getAccountId() {
