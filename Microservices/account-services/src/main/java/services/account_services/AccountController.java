@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,11 @@ public class AccountController {
     @PostMapping("/")
     public Account apiCreate(@RequestBody Account account){
         return accountservices.create(account);
-}
+    }
+    @PutMapping("/")
+    public Account apiUpdate(@RequestBody Account account){
+        return accountservices.create(account);
+    }
     @GetMapping("/")
     public List<Account> apiread(){
         return accountservices.read();
@@ -29,5 +34,8 @@ public class AccountController {
         List<Account> received = accountservices.readAccountByCustomer(customerid);
         return received;
     }
-
+    @GetMapping("/host/{accountNumber}")
+    public Account apiReadByAccount(@PathVariable("accountNumber") long accountNumber){
+        return accountservices.readByAccountNumber(accountNumber);
+    }
 }

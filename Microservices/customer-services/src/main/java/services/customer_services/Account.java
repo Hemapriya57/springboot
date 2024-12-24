@@ -6,12 +6,12 @@ public class Account {
     private long accountNumber;
     private boolean accountStatus;
     private double accountBalance;
-    private Customer customerEntity;
-    public Customer getCustomerEntity() {
-        return customerEntity;
+    private int customer;
+    public int getCustomer() {
+        return customer;
     }
-    public void setCustomerEntity(Customer customerEntity) {
-        this.customerEntity = customerEntity;
+    public void setCustomer(int customer) {
+        this.customer = customer;
     }
     public int getAccountId() {
         return accountId;

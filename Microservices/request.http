@@ -6,12 +6,12 @@ post http://localhost:8091/customer/
 Content-Type: application/json
 
 {
-  "customerName": "Hema",
-  "customerAddress": "Ooty",
+  "customerName": "Sumathi",
+  "customerAddress": "Salem",
   "customerStatus": "true",
-  "customerContact": 9876543210,
-  "userName": "hema",
-  "password": "aarav"
+  "customerContact": 8876543210,
+  "userName": "sumathi",
+  "password": "suman"
 }
 ###
 get http://localhost:8091/customer/users/sumathi
@@ -50,65 +50,59 @@ post http://localhost:8092/account/
 Content-Type: application/json
 
 {
-    "accountId":5,
-    "accountType":"Term Deposit",
-    "accountNumber":9876543210,
-    "accountBalance":550000,
+    "accountType":"Savings Deposit",
+    "accountNumber":38484848484,
+    "accountBalance":50000,
     "accountStatus":true,
-    "customer":1
+    "customer":2
 }
 ###
-get http://localhost:8092/account/1
+get http://localhost:8092/account/2
 
 #----------------------------payee------------------------------------------
 ###
-post http://localhost:8080/payee/9876543210
+post http://localhost:8093/payee/
 Content-Type: application/json
 
 {
-  "payeeName":"Hema",
-  "payeeAccountNum":1234567890
+  "payeeName":"Vikas",
+  "payeeAccountNum":4467587587,
+  "rootAccount":9876543210
 }
 ###
-get http://localhost:8080/payee/
+get http://localhost:8093/payee/
 ###
-get http://localhost:8080/payee/2
+get http://localhost:8093/payee/sender/9876543210
 ###
-get http://localhost:8080/payee/name/dhinesh
+get http://localhost:8093/payee/name/dhinesh
 ###
-put http://localhost:8080/payee/
+put http://localhost:8093/payee/
 Content-Type: application/json
 
 {
-  "payeeName": "sudharshan",
-  "payeeAccountNum": 6859680949,
-  "payeeId": 2,
-  "account":{
-    "accountId": 1,
-    "accountType": "Fixed Deposit",
-    "accountNumber": 98765432,
-    "accountStatus": true,
-    "accountBalance": 50000.0
-  }
+    "payeeId": 1,
+    "payeeName": "uma",
+    "payeeAccountNum": 1234567890,
+    "rootAccount": 9876543210
 }
 ------------------------------------Transaction-----------------------------
 ###
-POST http://localhost:8080/transfer/
+POST http://localhost:8094/transfer/
 Content-Type: application/json
 
 {
-  "transactionFrom":2467587587,
+  "transactionFrom":9876543210,
   "transactionTo":4467587587 ,
-  "transactionAmount":2,
+  "transactionAmount":100,
   "transactionType":"IMPS"
 }
 ###
-get http://localhost:8080/transfer/
+get http://localhost:8094/transfer/
 ###
-get http://localhost:8080/transfer/transactiontype/imps
+get http://localhost:8094/transfer/transactiontype/imps
 ###
-get http://localhost:8080/transfer/transactiondate/2024-12-04
+get http://localhost:8094/transfer/transactiondate/2024-12-04
 ###
-get http://localhost:8080/transfer/trfromanddate/4467587587/2024-12-02
+get http://localhost:8094/transfer/trfromanddate/4467587587/2024-12-02
 ###
-get http://localhost:8080/transfer/trfrom/4467587587
+get http://localhost:8094/transfer/trfrom/4467587587

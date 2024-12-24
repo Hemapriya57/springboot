@@ -1,40 +1,20 @@
-package services.account_services;
+package service.transaction_services;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
 public class Account {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int accountId;
     private String accountType;
-    @Column(unique = true)
     private long accountNumber;
     private boolean accountStatus;
     private double accountBalance;
-
     private transient List<Payee> payee;
-     public List<Payee> getPayee() {
+    public List<Payee> getPayee() {
         return payee;
     }
     public void setPayee(List<Payee> payee) {
         this.payee = payee;
     }
-    private int customer;
-     // shared identifier -> It acts as a foreign key (conceptually, though not necessarily enforced at the database level in microservices
-    public int getCustomer() {
-        return customer;
-    }
-    public void setCustomer(int customer) {
-        this.customer = customer;
-    }
-
     public int getAccountId() {
         return accountId;
     }
@@ -64,6 +44,11 @@ public class Account {
     }
     public void setAccountBalance(double accountBalance) {
         this.accountBalance = accountBalance;
+    }
+    @Override
+    public String toString() {
+        return "Account [accountId=" + accountId + ", accountType=" + accountType + ", accountNumber=" + accountNumber
+                + ", accountStatus=" + accountStatus + ", accountBalance=" + accountBalance + "]";
     }
 
     

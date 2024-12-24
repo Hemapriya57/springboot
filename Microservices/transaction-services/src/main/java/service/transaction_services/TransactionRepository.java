@@ -1,4 +1,4 @@
-package banking.zealous.Bank.Repositories;
+package service.transaction_services;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -6,8 +6,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import banking.zealous.Bank.Entities.Transaction;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction,Integer> {
@@ -21,4 +19,4 @@ public interface TransactionRepository extends JpaRepository<Transaction,Integer
     @Query("from Transaction where transactionFrom = :transactionfrom and transactionDate between :startDateTime and :endDateTime")
     List<Transaction> selectByTransactions(long transactionfrom,LocalDateTime startDateTime,LocalDateTime endDateTime);
 
-}    
+}
