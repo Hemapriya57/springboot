@@ -6,12 +6,12 @@ post http://localhost:8091/customer/
 Content-Type: application/json
 
 {
-  "customerName": "Sumathi",
-  "customerAddress": "Salem",
+  "customerName": "ishwarya",
+  "customerAddress": "chennai",
   "customerStatus": "true",
-  "customerContact": 8876543210,
-  "userName": "sumathi",
-  "password": "suman"
+  "customerContact": 7876543210,
+  "userName": "ish",
+  "password": "ish"
 }
 ###
 get http://localhost:8091/customer/users/sumathi
@@ -51,10 +51,10 @@ Content-Type: application/json
 
 {
     "accountType":"Savings Deposit",
-    "accountNumber":38484848484,
-    "accountBalance":50000,
+    "accountNumber":8989899899,
+    "accountBalance":90000,
     "accountStatus":true,
-    "customer":2
+    "customer":3
 }
 ###
 get http://localhost:8092/account/2
@@ -65,9 +65,9 @@ post http://localhost:8093/payee/
 Content-Type: application/json
 
 {
-  "payeeName":"Vikas",
-  "payeeAccountNum":4467587587,
-  "rootAccount":9876543210
+  "payeeName":"uma",
+  "payeeAccountNum":1234567890,
+  "rootAccount":8989899899
 }
 ###
 get http://localhost:8093/payee/

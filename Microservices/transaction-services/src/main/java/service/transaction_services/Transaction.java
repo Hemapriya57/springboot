@@ -1,8 +1,6 @@
 package service.transaction_services;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;

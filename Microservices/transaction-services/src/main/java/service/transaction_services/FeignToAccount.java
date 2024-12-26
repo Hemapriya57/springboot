@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name="feign",url = "http://localhost:8092")
+//@FeignClient(name="feign",url = "http://localhost:8092")
+@FeignClient(name = "ACCOUNT-SERVICES")
 public interface FeignToAccount {
     @GetMapping("/account/host/{accountNumber}")
     Account findByRootFrom(@PathVariable("accountNumber") long accountNumber);

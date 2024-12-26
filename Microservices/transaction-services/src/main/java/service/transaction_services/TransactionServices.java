@@ -19,7 +19,7 @@ public class TransactionServices {
     boolean isvalid = false;
     public Transaction transfer(Transaction transaction){
         Account fromAccount = feigntoaccount.findByRootFrom(transaction.getTransactionFrom());// find the root account
-        // find whether transactionTo is part of transactionDrom payee list
+        // find whether transactionTo is part of transactionfrom payee list
         int size = fromAccount.getPayee().stream().filter(o->o.getPayeeAccountNum()==transaction.getTransactionTo()).collect(Collectors.toList()).size();
         if(transaction.getTransactionFrom()==fromAccount.getAccountNumber()&&
         transaction.getTransactionFrom()!=transaction.getTransactionTo()&&size>0){

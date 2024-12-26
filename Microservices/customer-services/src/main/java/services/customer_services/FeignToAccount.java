@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(name="feign",url = "http://localhost:8092")
+//@FeignClient(name="feign",url = "http://localhost:8092")
+@FeignClient(name = "ACCOUNT-SERVICES")
 public interface FeignToAccount {
     @GetMapping("/account/{customerId}")
     List<Account> receiveAccount(@PathVariable("customerId") int customerId);

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name="feign",url = "http://localhost:8093")
 public interface FeignToPayee {
-    @GetMapping("/payee/sender/{root}")
+    @GetMapping("/payee/sender/{root}")   //this url should be in the payee controller
     List<Payee> receiveAccount(@PathVariable("root") long root);
    
     
